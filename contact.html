@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
     <p>We’d love to hear from you. Fill in the form or reach out directly.</p>
 
     <div class="contact-content">
-      <form action="mailto:youremail@example.com" method="POST" enctype="text/plain" class="contact-form">
+      <form action="mailto:lighthouseministers23@gmail.com" method="POST" enctype="text/plain" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
         <input type="text" name="subject" placeholder="Subject" />
@@ -65,6 +66,7 @@
     </div>
   </div>
 </section>
+
 <footer class="site-footer">
   <div class="footer-content">
     <!-- Left -->
@@ -108,11 +110,30 @@
     <a href="#" class="back-to-top">Back to Top ↑</a>
   </div>
 </footer>
+
 <script>
   function toggleMenu() {
     const nav = document.getElementById('navLinks');
     nav.classList.toggle('active');
   }
+
+   const cards = document.querySelectorAll('.council-card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target); // run only once
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => {
+    card.style.animationPlayState = 'paused'; // Pause initially
+    observer.observe(card);
+  });
 </script>
 </body>
 </html>
