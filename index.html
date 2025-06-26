@@ -7,5 +7,240 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 </head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/src/ll.png" alt="Lighthouse Logo" class="logo">
+            <span class="brand-name">THE LIGHTHOUSE MINISTERS - NRB</span>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="ministries.html">Ministries & Projects</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="welcome-section">
+  <div class="welcome-content">
+    <h1>We Share the message of hope and faith</h1>
+    <p>
+      The Lighthouse Ministers is a vibrant music group, <br>
+      affiliated with Jetview SDA Church in Utawala, Nairobi, Kenya.<br>
+      As part of the Seventh-day Adventist Church, we are dedicated to spreading the message of hope and faith through music and community service.<br>
+      Join us as we worship, celebrate and spread positivity through music and evangelism, creating an atmosphere of unity and spiritual growth.
+    </p>
+
+    <!-- 🔘 Action Buttons -->
+    <div class="welcome-buttons">
+      <a href="ministries.html" class="btn-primary">View Upcoming Events</a>
+      <a href="https://www.youtube.com/@thelighthouseministersnairobi/videos" class="btn-secondary">Explore Our Music</a>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="assets/src/i.jpg" alt="About Us Image">
+    </div>
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        The Lighthouse Ministers is a Christ-centered music ministry based in Utawala, Nairobi. We are passionate about spreading the gospel through powerful worship, music, and service.
+      </p>
+      <p>
+        As part of the Jetview SDA Church community, our mission is to uplift, inspire, and lead souls to Christ. We believe in the transformative power of music and strive to bring hope, love, and light to all through our voices and testimonies.
+      </p>
+      <a href="about.html" class="about-btn">Explore More About Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="council-section">
+  <h2>Meet Our Council</h2>
+  <div class="council-grid">
+
+    <!-- Member 1 -->
+    <div class="council-card">
+      <img src="assets/src/ken.jpg" alt="Member Name">
+      <h3>Kennedy Otieno</h3>
+      <p>Chairperson</p>
+    </div>
+
+    <!-- Member 2 -->
+    <div class="council-card">
+      <img src="assets/src/alv2.jpg" alt="Member Name">
+      <h3>Alvine Olonde</h3>
+      <p>Secretary</p>
+    </div>
+
+    <!-- Repeat for 10 members -->
+    <div class="council-card">
+      <img src="assets/src/shilla.jpg" alt="Member Name">
+      <h3>Sheilla Mokaya </h3>
+      <p>Treasurer</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/mil2.jpg" alt="Member Name">
+      <h3>Millicent Achieng</h3>
+      <p>Welfare</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/oir2.jpg" alt="Member Name">
+      <h3>Wycliff Oiro</h3>
+      <p>Music Director</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/kok2.jpg" alt="Member Name">
+      <h3>Calvince Kokebe</h3>
+      <p>Logistics</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/kevo.jpg" alt="Member Name">
+      <h3>Kevin Otieno</h3>
+      <p>Spiritual Leader</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/larry.jpg" alt="Member Name">
+      <h3>Larry Nyang'ute</h3>
+      <p>Publicity</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/dama.jpg" alt="Member Name">
+      <h3>Damackline Asuga</h3>
+      <p>Female Uniform Leader</p>
+    </div>
+
+    <div class="council-card">
+      <img src="assets/src/luck2.jpg" alt="Member Name">
+      <h3>Steve Lucky</h3>
+      <p>Male Uniform Leader</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="join-us-section">
+  <div class="join-us-container">
+    <h2>Want to Join Us?</h2>
+    <p>Fill out the form below to get in touch or become part of The Lighthouse Ministers community.</p>
+
+    <form class="join-form" action="mailto:lighthouseministers23@gmail.com" method="POST" enctype="text/plain">
+      <table class="join-table">
+        <tr>
+          <td><label for="fname">First Name:</label></td>
+          <td><input type="text" id="fname" name="First Name" required></td>
+        </tr>
+        <tr>
+          <td><label for="lname">Last Name:</label></td>
+          <td><input type="text" id="lname" name="Last Name" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input type="email" id="email" name="Email" required></td>
+        </tr>
+        <tr>
+          <td><label for="message">Message:(Reason as to why you want to join)</label></td>
+          <td><textarea id="message" name="Message" rows="4" required></textarea></td>
+        </tr>
+      </table>
+      <button type="submit" class="join-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <!-- Left -->
+    <div class="footer-left">
+      <h3>The Lighthouse Ministers</h3>
+      <p>Spreading the message of hope and faith through music and community service.</p>
+      <p><strong>Location:</strong> Jetview SDA Church, Utawala, Nairobi, Kenya</p>
+      <p><strong>Whatsapp Contact:</strong> <a href="https://wa.me/254724436295" target="_blank" rel="noopener">+254 724 436 295</a></p>
+    </div>
+
+    <!-- Right -->
+    <div class="footer-right">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ministries.html">Ministries</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+<!-- Floating Social Icons with Tooltips -->
+<div class="floating-socials-bottom">
+  <a href="https://www.youtube.com/@thelighthouseministersnairobi/videos" target="_blank" class="social youtube" aria-label="YouTube">
+    <i class="fa fa-youtube-play"></i>
+    <span class="tooltip">YouTube</span>
+  </a>
+  <a href="https://instagram.com/yourpage" target="_blank" class="social instagram" aria-label="Instagram">
+    <i class="fa fa-instagram"></i>
+    <span class="tooltip">Instagram</span>
+  </a>
+  <a href="https://wa.me/254724436295" target="_blank" class="social whatsapp" aria-label="WhatsApp">
+    <i class="fa fa-whatsapp"></i>
+    <span class="tooltip">WhatsApp</span>
+  </a>
+</div>
+ </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 The Lighthouse Ministers - NRB. All rights reserved.</p>
+    <a href="#" class="back-to-top">Back to Top ↑</a>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('active');
+  }
+
+   const cards = document.querySelectorAll('.council-card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target); // run only once
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => {
+    card.style.animationPlayState = 'paused'; // Pause initially
+    observer.observe(card);
+  });
+</script>
+</body>
+</html>
+
+
