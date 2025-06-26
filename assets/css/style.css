@@ -855,6 +855,224 @@ body::after {
     text-align: center;
   }
 }
+/* EVENTS & PROJECTS */
+.events-projects-section {
+  padding: 60px 20px;
+  background: #fdfdfd;
+  text-align: center;
+}
+
+.events-projects-section h2 {
+  font-size: 2.5rem;
+  color: #190368;
+  margin-bottom: 10px;
+}
+
+.section-intro {
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.event-project-group {
+  margin-bottom: 50px;
+}
+
+.group-title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+.event-card:nth-child(1) { animation-delay: 0.1s; }
+.event-card:nth-child(2) { animation-delay: 0.2s; }
+.event-card:nth-child(3) { animation-delay: 0.3s; }
+.event-card:nth-child(4) { animation-delay: 0.4s; }
+.event-card:nth-child(5) { animation-delay: 0.5s; }
+.event-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.event-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.event-name {
+  padding: 16px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #190368;
+  text-align: center;
+  background: #f7f7f7;
+  border-top: 1px solid #eee;
+}
+
+/* Animation Keyframe */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* M-PESA Support Section */
+.mpesa-support-section {
+  background: linear-gradient(to bottom right, #f9f9f9, #eef0ff);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.mpesa-support-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgb(0, 0, 0);
+  animation: fadeInUp 1s ease both;
+}
+
+.mpesa-support-container h2 {
+  font-size: 2rem;
+  color: #190368;
+  margin-bottom: 15px;
+}
+
+.mpesa-intro {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.mpesa-steps-box {
+  background-color: #f2f2f2;
+  border-left: 5px solid #190368;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.mpesa-steps-box h4 {
+  margin-top: 0;
+  color: #190368;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.mpesa-steps {
+  padding-left: 20px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.mpesa-steps li strong {
+  color: #190368;
+}
+
+/* Form Styling */
+.confirmation-form h3 {
+  font-size: 1.3rem;
+  color: #190368;
+  margin-bottom: 15px;
+}
+
+.confirmation-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.confirmation-form input,
+.confirmation-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: none;
+  width: 90%;
+  font-family: inherit;
+}
+
+.confirmation-form textarea {
+  min-height: 100px;
+}
+
+.confirmation-form button {
+  padding: 12px;
+  background-color: #b33a02;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.confirmation-form button:hover {
+  background-color: #1ebe57;
+  transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mpesa-support-container {
+    padding: 25px 20px;
+  }
+
+  .mpesa-support-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .confirmation-form input,
+  .confirmation-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .confirmation-form button {
+    font-size: 0.95rem;
+  }
+}
+
 
 
 
