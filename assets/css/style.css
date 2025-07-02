@@ -1110,7 +1110,7 @@ body::after {
 }
 
 .member-card img {
-  width: 90%;
+  width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
@@ -1165,6 +1165,7 @@ body::after {
 @media (max-width: 480px) {
   .member-card img {
     height: 180px;
+    width: fit-content;
   }
 }
 
