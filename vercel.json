@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://techmbojo.vercel.app",
+      "permanent": false
+    }
+  ]
+}
