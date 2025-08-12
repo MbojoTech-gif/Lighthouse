@@ -1108,10 +1108,10 @@ body::after {
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   text-align: center;
-  padding-bottom: 1.2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 300px;
   width: 100%;
+  cursor: pointer;
 }
 
 .member-card:hover {
@@ -1136,9 +1136,22 @@ body::after {
   font-weight: 600;
 }
 
-.member-card p {
+/* Member Details - Hidden by default */
+.member-details {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
   font-size: 0.95rem;
-  color: #777;
+  color: #555;
+  line-height: 1.4;
+  border-top: 1px solid #eee;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+/* Show when active */
+.member-card.active .member-details {
+  max-height: 300px; /* Enough to fit text */
+  padding: 1rem;
 }
 
 /* View More Button */
@@ -1180,6 +1193,7 @@ body::after {
     max-width: 90%;
   }
 }
+
 
 
 
