@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://lighthouseministers.vercel.app/sitemap.xml
