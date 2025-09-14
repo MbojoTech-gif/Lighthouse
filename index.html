@@ -7,16 +7,47 @@
   <!-- Google site verification -->
   <meta name="google-site-verification" content="9696a1d83773a8a2" />
 
+
+    <title>Protected Site</title>
     <title>LIGHTHOUSE MINISTERS</title>
+  
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 10%;
+      background-color: #121212;
+      color: white;
+    }
+
+    #passwordPrompt {
+      display: none;
+    }
+
+    #mainContent {
+      display: none;
+    }
+    #errorMsg {
+      color: red;
+    }
+  </style>
 
 
 </head>
 
 <body>
+    <!-- Password Entry -->
+  <div id="passwordPrompt">
+    <p id="errorMsg"></p>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="verifyPassword()">Enter</button>
+    <p id="errorMsg"></p>
+  </div>
+
 <header>
     <nav class="navbar">
         <div class="logo-container">
@@ -235,6 +266,46 @@
 </footer>
 
 <script>
+    const VALID_PASSWORD = "letmein123"; // Change this password
+    const USED_KEY = "password_used";
+
+    // Check if password has already been used
+    function hasUsedPassword() {
+      return localStorage.getItem(USED_KEY) === "true";
+    }
+
+    function verifyPassword() {
+      const input = document.getElementById("passwordInput").value;
+
+      if (input === VALID_PASSWORD && !hasUsedPassword()) {
+        localStorage.setItem(USED_KEY, "true");
+        showContent();
+      } else {
+        document.getElementById("errorMsg").textContent = "Invalid or already-used password.";
+      }
+    }
+
+    function showContent() {
+      document.getElementById("passwordPrompt").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    }
+
+    function logout() {
+      localStorage.removeItem(USED_KEY);
+      location.reload();
+    }
+
+      // On page load
+    window.onload = () => {
+      if (!hasUsedPassword()) {
+        document.getElementById("passwordPrompt").style.display = "block";
+      } else {
+        // Password already used — block access
+        document.body.innerHTML = "<h1>Access Denied</h1><p>This password has already been used. You cannot access the site again.</p>";
+      }
+    };
+
+
   function toggleMenu() {
     const nav = document.getElementById('navLinks');
     nav.classList.toggle('active');
