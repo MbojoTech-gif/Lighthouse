@@ -12,8 +12,7 @@
         /* Members Page Specific Styles */
         .members-section {
             padding: 60px 20px;
-            background-color: #ffffff;
-            color: #222;
+            background-color: #f9f9f9;
             min-height: 100vh;
         }
 
@@ -26,55 +25,170 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 40px;
-            color: #190368;
+            color: #333;
             position: relative;
+            display: inline-block;
+            width: 100%;
         }
 
-        .members-section h2:after {
+        .members-section h2::after {
             content: '';
-            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 80px;
-            height: 4px;
-            background: #3498db;
-            margin: 15px auto;
-            border-radius: 2px;
+            height: 3px;
+            background-color: #4a90e2;
         }
 
-        /* Carousel Container */
-        .members-carousel {
+        /* Council Section Styles */
+        .council-section {
+            margin-bottom: 60px;
+        }
+        
+        .council-slider {
             position: relative;
-            padding: 0 40px;
-            margin-bottom: 40px;
-        }
-
-        /* Grid Layout */
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            justify-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
             overflow: hidden;
         }
 
-        /* Member Card */
+        .council-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            padding: 20px 0;
+        }
+
+        .council-slide {
+            flex: 0 0 calc(100% - 40px);
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            min-height: 350px;
+        }
+
+        .council-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #4a90e2;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .council-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .council-info {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .council-info h3 {
+            margin: 10px 0 5px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .council-info p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .council-role {
+            color: #4a90e2 !important;
+            font-weight: 600;
+            margin-top: 5px !important;
+            font-size: 1.1rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-dot.active {
+            background: #4a90e2;
+        }
+
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .slider-arrow {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            pointer-events: auto;
+            transition: background 0.3s;
+            font-size: 1.5rem;
+            color: #4a90e2;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* All Members Grid */
+        .all-members-section {
+            margin-top: 60px;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
         .member-card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
             cursor: pointer;
-            max-width: 260px;
-            width: 100%;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .member-card.show {
-            opacity: 1;
-            transform: translateY(0);
-            transition: transform 0.6s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+            max-width: 280px;
+            width: 100%;
         }
 
         .member-card:hover {
@@ -82,67 +196,38 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        /* Image Styling - Made smaller and fitted */
         .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #4a90e2;
+            margin: 25px auto 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .member-image img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            object-position: center top;
-            display: block;
-            border-bottom: 3px solid #3498db;
         }
 
         .member-info {
-            padding: 15px;
+            padding: 15px 20px 25px;
         }
 
         .member-card h3 {
             margin: 0.8rem 0 0.3rem;
-            font-size: 1.2rem;
-            color: #2c3e50;
+            font-size: 1.3rem;
+            color: #333;
             font-weight: 600;
         }
 
         .member-role {
-            color: #3498db;
+            color: #4a90e2;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 10px;
-        }
-
-        /* Navigation Arrows */
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-nav:hover {
-            background: #3498db;
-            color: white;
-        }
-
-        .carousel-nav.prev {
-            left: 0;
-        }
-
-        .carousel-nav.next {
-            right: 0;
-        }
-
-        .carousel-nav i {
-            font-size: 1.5rem;
         }
 
         /* Modal Styles */
@@ -254,6 +339,41 @@
         }
 
         /* Responsive Tweaks */
+        @media (min-width: 768px) {
+            .council-slide {
+                flex: 0 0 calc(50% - 40px);
+                flex-direction: row;
+                text-align: left;
+                padding: 30px;
+            }
+            
+            .council-image {
+                margin-right: 25px;
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            
+            .council-info {
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .council-slide {
+                flex: 0 0 calc(33.333% - 40px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .slider-arrows {
+                display: none;
+            }
+            
+            .members-section h2 {
+                font-size: 2rem;
+            }
+        }
+
         @media (max-width: 900px) {
             .modal-profile {
                 flex-direction: column;
@@ -270,29 +390,6 @@
                 gap: 1.5rem;
             }
             
-            .member-card {
-                max-width: 220px;
-            }
-            
-            .member-image {
-                height: 180px;
-            }
-            
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .members-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .member-card {
-                max-width: 100%;
-            }
-            
             .modal-content {
                 margin: 20px auto;
             }
@@ -306,13 +403,19 @@
             }
         }
 
+        @media (max-width: 600px) {
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+        }
+
         @media (max-width: 480px) {
             .members-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .member-image {
-                height: 220px;
             }
             
             .modal-image {
@@ -348,22 +451,161 @@
 
     <section class="members-section">
         <div class="members-container">
-            <h2>Meet Our Members</h2>
+            <h2>Our Leadership Council</h2>
             
-            <div class="members-carousel">
-                <!-- Navigation Arrows -->
-                <div class="carousel-nav prev">
-                    <i class="fa fa-chevron-left"></i>
+            <div class="council-section">
+                <div class="council-slider">
+                    <div class="slider-arrows">
+                        <button class="slider-arrow prev-arrow">&lt;</button>
+                        <button class="slider-arrow next-arrow">&gt;</button>
+                    </div>
+                    
+                    <div class="council-slides">
+                        <!-- Council Member 1 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/ken.jpg" alt="Kennedy Otieno">
+                            </div>
+                            <div class="council-info">
+                                <h3>Kennedy Otieno</h3>
+                                <p class="council-role">Chairperson</p>
+                                <p>Leads the council with vision and direction, ensuring the ministry stays true to its mission.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 2 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/al.jpg" alt="Alvine Olonde">
+                            </div>
+                            <div class="council-info">
+                                <h3>Alvine Olonde</h3>
+                                <p class="council-role">Secretary</p>
+                                <p>Manages communications, records, and documentation for the ministry's activities.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 3 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/shil.jpg" alt="Sheilla Mokaya">
+                            </div>
+                            <div class="council-info">
+                                <h3>Sheilla Mokaya</h3>
+                                <p class="council-role">Treasurer</p>
+                                <p>Oversees financial matters, budgeting, and resource allocation for the ministry.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 4 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/millicent.jpg" alt="Millicent Achieng">
+                            </div>
+                            <div class="council-info">
+                                <h3>Millicent Achieng</h3>
+                                <p class="council-role">Welfare</p>
+                                <p>Coordinates care and support for ministry members and the community we serve.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 5 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/oir2.jpg" alt="Wycliff Oiro">
+                            </div>
+                            <div class="council-info">
+                                <h3>Wycliff Oiro</h3>
+                                <p class="council-role">Music Director</p>
+                                <p>Leads musical direction, rehearsals, and ensures the quality of our worship through music.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 6 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/kok2.jpg" alt="Calvince Kokebe">
+                            </div>
+                            <div class="council-info">
+                                <h3>Calvince Kokebe</h3>
+                                <p class="council-role">Logistics</p>
+                                <p>Manages equipment, venues, and all practical arrangements for our events and services.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 7 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/kevo.jpg" alt="Kevin Otieno">
+                            </div>
+                            <div class="council-info">
+                                <h3>Kevin Otieno</h3>
+                                <p class="council-role">Spiritual Leader</p>
+                                <p>Provides spiritual guidance, devotionals, and ensures our ministry remains Christ-centered.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 8 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/larry.jpg" alt="Larry Nyang'ute">
+                            </div>
+                            <div class="council-info">
+                                <h3>Larry Nyang'ute</h3>
+                                <p class="council-role">Publicity</p>
+                                <p>Manages promotions, social media, and communications to spread our message.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 9 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/dama.jpg" alt="Damackline Asuga">
+                            </div>
+                            <div class="council-info">
+                                <h3>Damackline Asuga</h3>
+                                <p class="council-role">Female Uniform Leader</p>
+                                <p>Coordinates and maintains the attire standards for female members of the ministry.</p>
+                            </div>
+                        </div>
+
+                        <!-- Council Member 10 -->
+                        <div class="council-slide">
+                            <div class="council-image">
+                                <img src="assets/src/CPT STEVE.jpg" alt="Steve Lucky">
+                            </div>
+                            <div class="council-info">
+                                <h3>Steve Lucky</h3>
+                                <p class="council-role">Male Uniform Leader</p>
+                                <p>Coordinates and maintains the attire standards for male members of the ministry.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-nav">
+                        <div class="slider-dot active"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                    </div>
                 </div>
-                
-                <div class="carousel-nav next">
-                    <i class="fa fa-chevron-right"></i>
-                </div>
+            </div>
+            
+            <div class="all-members-section">
+                <h2>All Members</h2>
                 
                 <div class="members-grid">
                     <!-- Member 1 -->
                     <div class="member-card" onclick="openModal('modal1')">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wycliff Oiro" class="member-image">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wycliff Oiro">
+                        </div>
                         <div class="member-info">
                             <h3>Wycliff Oiro</h3>
                             <p class="member-role">Bass Guitarist</p>
@@ -372,7 +614,9 @@
 
                     <!-- Member 2 -->
                     <div class="member-card" onclick="openModal('modal2')">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Johnson" class="member-image">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Johnson">
+                        </div>
                         <div class="member-info">
                             <h3>Sarah Johnson</h3>
                             <p class="member-role">Lead Vocalist</p>
@@ -381,7 +625,9 @@
 
                     <!-- Member 3 -->
                     <div class="member-card" onclick="openModal('modal3')">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Michael Chen" class="member-image">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Michael Chen">
+                        </div>
                         <div class="member-info">
                             <h3>Michael Chen</h3>
                             <p class="member-role">Drummer</p>
@@ -390,7 +636,9 @@
 
                     <!-- Member 4 -->
                     <div class="member-card" onclick="openModal('modal4')">
-                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Emma Wilson" class="member-image">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Emma Wilson">
+                        </div>
                         <div class="member-info">
                             <h3>Emma Wilson</h3>
                             <p class="member-role">Keyboardist</p>
@@ -399,7 +647,9 @@
 
                     <!-- Member 5 -->
                     <div class="member-card" onclick="openModal('modal5')">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="David Brown" class="member-image">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="David Brown">
+                        </div>
                         <div class="member-info">
                             <h3>David Brown</h3>
                             <p class="member-role">Guitarist</p>
@@ -408,7 +658,9 @@
 
                     <!-- Member 6 -->
                     <div class="member-card" onclick="openModal('modal6')">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sophia Martinez" class="member-image">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sophia Martinez">
+                        </div>
                         <div class="member-info">
                             <h3>Sophia Martinez</h3>
                             <p class="member-role">Backup Vocalist</p>
@@ -524,42 +776,99 @@
             hamburger.classList.toggle('active');
         }
 
-        // Scroll reveal animation
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
+        // Council slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.council-slides');
+            const slides = document.querySelectorAll('.council-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            const prevBtn = document.querySelector('.prev-arrow');
+            const nextBtn = document.querySelector('.next-arrow');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Set initial active dot
+            updateDots();
+            
+            // Function to update slider position
+            function updateSlider() {
+                let slideWidth;
+                
+                if (window.innerWidth >= 992) {
+                    // Desktop - show 3 slides
+                    slideWidth = slides[0].offsetWidth + 40; // width + margin
+                    slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                } else if (window.innerWidth >= 768) {
+                    // Tablet - show 2 slides
+                    slideWidth = slides[0].offsetWidth + 40; // width + margin
+                    slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+                } else {
+                    // Mobile - show 1 slide
+                    slideWidth = slides[0].offsetWidth + 40; // width + margin
+                    slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
                 }
+                
+                updateDots();
+            }
+            
+            // Function to update active dot
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next slide
+            function nextSlide() {
+                if (window.innerWidth >= 992) {
+                    // Desktop
+                    currentSlide = (currentSlide + 1) % (slideCount - 2);
+                } else if (window.innerWidth >= 768) {
+                    // Tablet
+                    currentSlide = (currentSlide + 1) % (slideCount - 1);
+                } else {
+                    // Mobile
+                    currentSlide = (currentSlide + 1) % slideCount;
+                }
+                updateSlider();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                if (window.innerWidth >= 992) {
+                    // Desktop
+                    currentSlide = (currentSlide - 1 + (slideCount - 2)) % (slideCount - 2);
+                } else if (window.innerWidth >= 768) {
+                    // Tablet
+                    currentSlide = (currentSlide - 1 + (slideCount - 1)) % (slideCount - 1);
+                } else {
+                    // Mobile
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                }
+                updateSlider();
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
             });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.member-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Carousel navigation
-        const carousel = document.querySelector('.members-grid');
-        const prevButton = document.querySelector('.carousel-nav.prev');
-        const nextButton = document.querySelector('.carousel-nav.next');
-        const memberCards = document.querySelectorAll('.member-card');
-        const cardWidth = memberCards[0].offsetWidth + 32; // width + gap
-
-        let currentPosition = 0;
-        const maxPosition = (memberCards.length - 4) * cardWidth;
-
-        prevButton.addEventListener('click', () => {
-            if (currentPosition < 0) {
-                currentPosition += cardWidth;
-                carousel.style.transform = `translateX(${currentPosition}px)`;
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            if (currentPosition > -maxPosition) {
-                currentPosition -= cardWidth;
-                carousel.style.transform = `translateX(${currentPosition}px)`;
-            }
+            
+            // Handle window resize
+            window.addEventListener('resize', updateSlider);
+            
+            // Auto slide (optional)
+            setInterval(nextSlide, 5000);
         });
 
         // Modal functions
@@ -592,16 +901,6 @@
                 document.body.style.overflow = 'auto';
             }
         });
-
-        // Handle responsive carousel
-        function updateCarousel() {
-            if (window.innerWidth < 600) {
-                carousel.style.transform = 'translateX(0)';
-                currentPosition = 0;
-            }
-        }
-
-        window.addEventListener('resize', updateCarousel);
     </script>
 </body>
 </html>
