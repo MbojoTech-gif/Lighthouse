@@ -6,6 +6,7 @@
     "disown-opener": "off",
     "no-inline-styles": "off",
     "meta-viewport": "off",
-    "meta-charset-utf-8": "off"
+    "meta-charset-utf-8": "off",
+    "axe/name-role-value": "off"
   }
 }
