@@ -13,6 +13,189 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<style>
+/* Council Section Styles */
+.council-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.council-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+  position: relative;
+  display: inline-block;
+}
+
+.council-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #4a90e2;
+}
+
+.council-slider {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.council-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  padding: 20px 0;
+}
+
+.council-slide {
+  flex: 0 0 calc(100% - 40px);
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  min-height: 350px;
+}
+
+.council-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #4a90e2;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.council-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.council-info {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.council-info h3 {
+  margin: 10px 0 5px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.council-info p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.council-role {
+  color: #4a90e2 !important;
+  font-weight: 600;
+  margin-top: 5px !important;
+  font-size: 1.1rem;
+}
+
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dot.active {
+  background: #4a90e2;
+}
+
+.slider-arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.slider-arrow {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  pointer-events: auto;
+  transition: background 0.3s;
+  font-size: 1.5rem;
+  color: #4a90e2;
+}
+
+.slider-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .council-slide {
+    flex: 0 0 calc(50% - 40px);
+    flex-direction: row;
+    text-align: left;
+    padding: 30px;
+  }
+  
+  .council-image {
+    margin-right: 25px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .council-info {
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .council-slide {
+    flex: 0 0 calc(33.333% - 40px);
+  }
+}
+
+@media (max-width: 767px) {
+  .slider-arrows {
+    display: none;
+  }
+  
+  .council-section h2 {
+    font-size: 2rem;
+  }
+}
+</style>
 
 </head>
 
@@ -86,78 +269,154 @@
       <input type="file" id="attachment" title="Attach your request file" placeholder="Choose a file" accept=".pdf,.doc,.docx,.jpg,.png" />
       <button type="submit">Send Request via WhatsApp</button>
     </form>
-    <small class="note">* You’ll be redirected to WhatsApp. Please send the attached file manually in chat.</small>
+    <small class="note">* You'll be redirected to WhatsApp. Please send the attached file manually in chat.</small>
   </div>
 </section>
 
 
 <section class="council-section">
   <h2>Meet Our Council</h2>
-  <div class="council-grid">
-
-    <!-- Member 1 -->
-    <div class="council-card">
-      <img src="assets/src/ken.jpg" alt="kennedy">
-      <h3>Kennedy Otieno</h3>
-      <p>Chairperson</p>
+  
+  <div class="council-slider">
+    <div class="slider-arrows">
+      <button class="slider-arrow prev-arrow">&lt;</button>
+      <button class="slider-arrow next-arrow">&gt;</button>
     </div>
+    
+    <div class="council-slides">
+      <!-- Member 1 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/ken.jpg" alt="Kennedy Otieno">
+        </div>
+        <div class="council-info">
+          <h3>Kennedy Otieno</h3>
+          <p class="council-role">Chairperson</p>
+          <p>Leads the council with vision and direction, ensuring the ministry stays true to its mission.</p>
+        </div>
+      </div>
 
-    <!-- Member 2 -->
-    <div class="council-card">
-      <img src="assets/src/al.jpg" alt="Alvine Olonde">
-      <h3>Alvine Olonde</h3>
-      <p>Secretary</p>
+      <!-- Member 2 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/al.jpg" alt="Alvine Olonde">
+        </div>
+        <div class="council-info">
+          <h3>Alvine Olonde</h3>
+          <p class="council-role">Secretary</p>
+          <p>Manages communications, records, and documentation for the ministry's activities.</p>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/shil.jpg" alt="Sheilla Mokaya">
+        </div>
+        <div class="council-info">
+          <h3>Sheilla Mokaya</h3>
+          <p class="council-role">Treasurer</p>
+          <p>Oversees financial matters, budgeting, and resource allocation for the ministry.</p>
+        </div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/millicent.jpg" alt="Millicent Achieng">
+        </div>
+        <div class="council-info">
+          <h3>Millicent Achieng</h3>
+          <p class="council-role">Welfare</p>
+          <p>Coordinates care and support for ministry members and the community we serve.</p>
+        </div>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/oir2.jpg" alt="Wycliff Oiro">
+        </div>
+        <div class="council-info">
+          <h3>Wycliff Oiro</h3>
+          <p class="council-role">Music Director</p>
+          <p>Leads musical direction, rehearsals, and ensures the quality of our worship through music.</p>
+        </div>
+      </div>
+
+      <!-- Member 6 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/kok2.jpg" alt="Calvince Kokebe">
+        </div>
+        <div class="council-info">
+          <h3>Calvince Kokebe</h3>
+          <p class="council-role">Logistics</p>
+          <p>Manages equipment, venues, and all practical arrangements for our events and services.</p>
+        </div>
+      </div>
+
+      <!-- Member 7 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/kevo.jpg" alt="Kevin Otieno">
+        </div>
+        <div class="council-info">
+          <h3>Kevin Otieno</h3>
+          <p class="council-role">Spiritual Leader</p>
+          <p>Provides spiritual guidance, devotionals, and ensures our ministry remains Christ-centered.</p>
+        </div>
+      </div>
+
+      <!-- Member 8 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/larry.jpg" alt="Larry Nyang'ute">
+        </div>
+        <div class="council-info">
+          <h3>Larry Nyang'ute</h3>
+          <p class="council-role">Publicity</p>
+          <p>Manages promotions, social media, and communications to spread our message.</p>
+        </div>
+      </div>
+
+      <!-- Member 9 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/dama.jpg" alt="Damackline Asuga">
+        </div>
+        <div class="council-info">
+          <h3>Damackline Asuga</h3>
+          <p class="council-role">Female Uniform Leader</p>
+          <p>Coordinates and maintains the attire standards for female members of the ministry.</p>
+        </div>
+      </div>
+
+      <!-- Member 10 -->
+      <div class="council-slide">
+        <div class="council-image">
+          <img src="assets/src/CPT STEVE.jpg" alt="Steve Lucky">
+        </div>
+        <div class="council-info">
+          <h3>Steve Lucky</h3>
+          <p class="council-role">Male Uniform Leader</p>
+          <p>Coordinates and maintains the attire standards for male members of the ministry.</p>
+        </div>
+      </div>
     </div>
-
-    <!-- Repeat for 10 members -->
-    <div class="council-card">
-      <img src="assets/src/shil.jpg" alt="Sheilla Mokaya">
-      <h3>Sheilla Mokaya </h3>
-      <p>Treasurer</p>
+    
+    <div class="slider-nav">
+      <div class="slider-dot active"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
+      <div class="slider-dot"></div>
     </div>
-
-    <div class="council-card">
-      <img src="assets/src/millicent.jpg" alt="Millicent Achieng">
-      <h3>Millicent Achieng</h3>
-      <p>Welfare</p>
-    </div>
-
-    <div class="council-card">
-      <img src="assets/src/oir2.jpg" alt="Wycliff Oiro">
-      <h3>Wycliff Oiro</h3>
-      <p>Music Director</p>
-    </div>
-
-    <div class="council-card">
-      <img src="assets/src/kok2.jpg" alt="Calvince Kokebe">
-      <h3>Calvince Kokebe</h3>
-      <p>Logistics</p>
-    </div>
-
-    <div class="council-card">
-      <img src="assets/src/kevo.jpg" alt="Kevin Otieno">
-      <h3>Kevin Otieno</h3>
-      <p>Spiritual Leader</p>
-    </div>
-
-    <div class="council-card">
-      <img src="assets/src/larry.jpg" alt="Larry Nyang'ute">
-      <h3>Larry Nyang'ute</h3>
-      <p>Publicity</p>
-    </div>
-
-    <div class="council-card">
-      <img src="assets/src/dama.jpg" alt="Damackline Asuga">
-      <h3>Damackline Asuga</h3>
-      <p>Female Uniform Leader</p>
-    </div>
-
-    <div class="council-card">
-      <img src="assets/src/CPT STEVE.jpg" alt="CPT Steve">
-      <h3>Steve Lucky</h3>
-      <p>Male Uniform Leader</p>
-    </div>
-
   </div>
 </section>
 
@@ -240,22 +499,99 @@
     nav.classList.toggle('active');
   }
 
-   const cards = document.querySelectorAll('.council-card');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running';
-        observer.unobserve(entry.target); // run only once
+  // Council slider functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.council-slides');
+    const slides = document.querySelectorAll('.council-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.prev-arrow');
+    const nextBtn = document.querySelector('.next-arrow');
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    
+    // Set initial active dot
+    updateDots();
+    
+    // Function to update slider position
+    function updateSlider() {
+      let slideWidth;
+      
+      if (window.innerWidth >= 992) {
+        // Desktop - show 3 slides
+        slideWidth = slides[0].offsetWidth + 40; // width + margin
+        slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+      } else if (window.innerWidth >= 768) {
+        // Tablet - show 2 slides
+        slideWidth = slides[0].offsetWidth + 40; // width + margin
+        slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+      } else {
+        // Mobile - show 1 slide
+        slideWidth = slides[0].offsetWidth + 40; // width + margin
+        slider.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
       }
+      
+      updateDots();
+    }
+    
+    // Function to update active dot
+    function updateDots() {
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+    
+    // Next slide
+    function nextSlide() {
+      if (window.innerWidth >= 992) {
+        // Desktop
+        currentSlide = (currentSlide + 1) % (slideCount - 2);
+      } else if (window.innerWidth >= 768) {
+        // Tablet
+        currentSlide = (currentSlide + 1) % (slideCount - 1);
+      } else {
+        // Mobile
+        currentSlide = (currentSlide + 1) % slideCount;
+      }
+      updateSlider();
+    }
+    
+    // Previous slide
+    function prevSlide() {
+      if (window.innerWidth >= 992) {
+        // Desktop
+        currentSlide = (currentSlide - 1 + (slideCount - 2)) % (slideCount - 2);
+      } else if (window.innerWidth >= 768) {
+        // Tablet
+        currentSlide = (currentSlide - 1 + (slideCount - 1)) % (slideCount - 1);
+      } else {
+        // Mobile
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      }
+      updateSlider();
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlider();
+      });
     });
-  }, {
-    threshold: 0.2
-  });
-
-  cards.forEach(card => {
-    card.style.animationPlayState = 'paused'; // Pause initially
-    observer.observe(card);
+    
+    // Handle window resize
+    window.addEventListener('resize', updateSlider);
+    
+    // Auto slide (optional)
+    setInterval(nextSlide, 5000);
   });
 
    document.getElementById('whatsappForm').addEventListener('submit', function (e) {
@@ -280,5 +616,3 @@
 </script>
 </body>
 </html>
-
-
