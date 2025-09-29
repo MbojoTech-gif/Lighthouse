@@ -146,7 +146,7 @@ img { max-width: 50px; border-radius: 5px; }
     <a href="profile.php" class="admin-card">
         <div>
             <span>Username: <?= htmlspecialchars($admin['username']); ?></span>
-            <span>Email: <?= htmlspecialchars($admin['email'] ?? 'Not set'); ?></span>
+            
         </div>
         <div>
             <span>Edit Profile ⚙️</span>

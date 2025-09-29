@@ -18,18 +18,17 @@ $admin = $result->fetch_assoc();
 $stmt->close();
 
 // Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $newUsername = trim($_POST['username']);
-    $newEmail = trim($_POST['email']);
     $newPassword = $_POST['password'];
 
     if (!empty($newPassword)) {
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE admins SET username=?, email=?, password=? WHERE username=?");
-        $stmt->bind_param("ssss", $newUsername, $newEmail, $hashedPassword, $adminUsername);
+        $stmt = $conn->prepare("UPDATE admins SET username=?, password=? WHERE username=?");
+        $stmt->bind_param("sss", $newUsername, $hashedPassword, $adminUsername);
     } else {
-        $stmt = $conn->prepare("UPDATE admins SET username=?, email=? WHERE username=?");
-        $stmt->bind_param("sss", $newUsername, $newEmail, $adminUsername);
+        $stmt = $conn->prepare("UPDATE admins SET username=? WHERE username=?");
+        $stmt->bind_param("ss", $newUsername, $adminUsername);
     }
 
     if ($stmt->execute()) {
@@ -56,30 +55,23 @@ body {
     background: #f4f4f4;
     min-height: 100vh;
 }
-
-/* Sidebar */
 .sidebar {
     width: 220px;
-    background: #01175dff;
+    background: #01175d;
     color: #fff;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    transition: transform 0.3s ease;
 }
 .sidebar h2 { margin: 0 0 20px; text-align: center; font-size: 20px; border-bottom: 1px solid #444; padding-bottom: 10px; }
-.sidebar a { text-decoration: none; color: #fff; padding: 12px; margin: 6px 0; border-radius: 5px; display: block; transition: 0.3s; }
+.sidebar a { text-decoration: none; color: #fff; padding: 12px; margin: 6px 0; border-radius: 5px; display: block; }
 .sidebar a:hover { background: #444; }
 .logout { margin-top: auto; }
 .logout a { background: crimson; text-align: center; display: block; }
 .logout a:hover { background: darkred; }
-
-/* Main content */
 .main { flex: 1; padding: 30px; overflow-y: auto; width: 100%; box-sizing: border-box; }
 .main-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
 .main h1 { margin: 0; font-size: 22px; }
-
-/* Profile box */
 .profile-box {
     background: #fff;
     padding: 30px;
@@ -92,33 +84,14 @@ body {
 .profile-box form { display: flex; flex-direction: column; gap: 15px; }
 .profile-box label { font-weight: bold; }
 .profile-box input { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
-.profile-box button { padding: 12px; background: #01175dff; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.profile-box button { padding: 12px; background: #01175d; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
 .profile-box button:hover { background: #0226ff; }
 .success-msg { color: green; text-align: center; margin-bottom: 15px; }
 .error-msg { color: red; text-align: center; margin-bottom: 15px; }
-
-/* Mobile */
-.menu-toggle {
-    display: none;
-    background: #010361ff;
-    color: #fff;
-    border: none;
-    font-size: 20px;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
+.menu-toggle { display: none; background: #010361; color: #fff; border: none; font-size: 20px; padding: 8px 12px; cursor: pointer; border-radius: 5px; }
 @media (max-width: 768px) {
     body { flex-direction: column; }
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        transform: translateX(-100%);
-        z-index: 999;
-    }
+    .sidebar { position: fixed; top: 0; left: 0; height: 100%; transform: translateX(-100%); z-index: 999; }
     .sidebar.active { transform: translateX(0); }
     .main { padding: 20px; }
     .main-header { flex-direction: row; justify-content: space-between; }
@@ -128,7 +101,6 @@ body {
 </head>
 <body>
 
-<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <h2>LHM Admin Panel</h2>
     <a href="dashboard.php">🏠 Dashboard</a>
@@ -140,7 +112,6 @@ body {
     </div>
 </div>
 
-<!-- Main content -->
 <div class="main">
     <div class="main-header">
         <h1>Edit Profile - <?= htmlspecialchars($adminUsername); ?></h1>
@@ -149,15 +120,12 @@ body {
 
     <div class="profile-box">
         <?php 
-        if(isset($successMsg)) echo "<div class='success-msg'>$successMsg</div>";
-        if(isset($errorMsg)) echo "<div class='error-msg'>$errorMsg</div>";
+        if (isset($successMsg)) echo "<div class='success-msg'>$successMsg</div>";
+        if (isset($errorMsg)) echo "<div class='error-msg'>$errorMsg</div>";
         ?>
         <form method="POST">
             <label>Username:</label>
             <input type="text" name="username" value="<?= htmlspecialchars($admin['username']) ?>" required>
-
-            <label>Email:</label>
-            <input type="email" name="email" value="<?= htmlspecialchars($admin['email'] ?? '') ?>" required>
 
             <label>New Password (leave blank to keep current):</label>
             <input type="password" name="password">
