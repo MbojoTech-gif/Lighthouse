@@ -1,95 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIGHTHOUSE MINISTERS</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIGHTHOUSE MINISTERS</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  /* Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .event-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .event-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .event-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  /* Responsive columns */
+  @media (min-width: 1024px) {
+    .card-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 cards on large screens */
+    }
+  }
+
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 cards on medium screens */
+    }
+  }
+
+  @media (max-width: 767px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards on mobile */
+    }
+    .event-card img {
+      height: 100px;
+    }
+    .event-name {
+      font-size: 0.9rem;
+      padding: 6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-grid {
+      gap: 12px;
+    }
+    .event-card img {
+      height: 90px;
+    }
+    .event-name {
+      font-size: 0.85rem;
+      padding: 5px;
+    }
+  }
+</style>
 </head>
 
 <body>
 <header>
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="assets/src/ll.png" alt="Lighthouse Logo" class="logo">
-            <span class="brand-name">THE LIGHTHOUSE MINISTERS</span>
-        </div>
-
-        <div class="hamburger" onclick="toggleMenu()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="ministries.html">Ministries & Projects</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="assets/src/ll.png" alt="Lighthouse Logo" class="logo">
+      <span class="brand-name">THE LIGHTHOUSE MINISTERS</span>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="ministries.html">Ministries & Projects</a></li>
+      <li><a href="members.html">Members</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 </header>
+
 <section class="events-projects-section">
   <div class="container">
-    <h2>Our Events & Projects</h2>
-    <p class="section-intro">
-      Stay up to date with our upcoming ministry events and impactful community projects.
-    </p>
-
-    <!-- Events Section -->
-    <div class="event-project-group">
-      <h3 class="group-title">Upcoming Events</h3>
-      <div class="card-grid">
-        <div class="event-card">
-          <img src="assets/src/fimbo.jpg" alt="Event 1">
-          <p class="event-name">Fimbo Ya Haruni Music Concert – 6th July 2025</p>
-        </div>
-         <div class="event-card">
-          <img src="assets/src/fimbo.jpg" alt="Event 2">
-          <p class="event-name">Fimbo Ya Haruni Music Concert – 6th July 2025</p>
-        </div>
-         <div class="event-card">
-          <img src="assets/src/fimbo.jpg" alt="Event 3">
-          <p class="event-name">Fimbo Ya Haruni Music Concert – 6th July 2025</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects Section -->
-    <div class="event-project-group">
-      <h3 class="group-title">Ongoing Projects</h3>
-      <div class="card-grid">
-         <div class="event-card">
-          <img src="assets/src/fimbo.jpg" alt="Project 1">
-          <p class="event-name">Fimbo Ya Haruni Music Concert – 6th July 2025</p>
-        </div>
-        <div class="event-card">
-          <img src="assets/src/fimbo.jpg" alt="Project 2">
-          <p class="event-name">Fimbo Ya Haruni Music Concert – 6th July 2025</p>
-        </div>
-         <div class="event-card">
-          <img src="assets/src/fimbo.jpg" alt="Project 3">
-          <p class="event-name">Fimbo Ya Haruni Music Concert – 6th July 2025</p>
-        </div>
-      </div>
+    <h2>Our Events</h2>
+    <p class="section-intro">Stay up to date with our upcoming ministry events.</p>
+    <div class="card-grid" id="events-container">
+      <!-- Dynamic cards will load here -->
     </div>
   </div>
 </section>
 
 <section class="mpesa-support-section">
   <div class="mpesa-support-container">
-    <h2><i class="fa fa-money" aria-hidden="true"></i> Support Our Projects via M-PESA</h2>
-    <p class="mpesa-intro">
-      Your contribution empowers our ministry to do more. Follow the steps below to support us.
-    </p>
-
+    <h2><i class="fa fa-money"></i> Support Our Projects via M-PESA</h2>
+    <p>Your contribution empowers our ministry to do more. Follow the steps below to support us.</p>
     <div class="mpesa-steps-box">
       <h4>Steps to Send Support:</h4>
-      <ol class="mpesa-steps">
+      <ol>
         <li>Go to M-PESA menu on your phone</li>
         <li>Select <strong>M-PESA</strong></li>
         <li>Select <strong>Send Money</strong></li>
@@ -98,13 +131,12 @@
         <li>Enter your M-PESA PIN and send</li>
       </ol>
     </div>
-
     <div class="confirmation-form">
       <h3><i class="fa fa-check-circle"></i> Send Confirmation</h3>
       <form id="whatsappForm" onsubmit="sendToWhatsApp(); return false;">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="text" id="code" placeholder="Transaction Code" required />
-        <input type="email" id="email" placeholder="Email (optional)" />
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="code" placeholder="Transaction Code" required>
+        <input type="email" id="email" placeholder="Email (optional)">
         <textarea id="message" placeholder="Message (optional)"></textarea>
         <button type="submit"><i class="fa fa-whatsapp"></i> Send via WhatsApp</button>
       </form>
@@ -112,18 +144,14 @@
   </div>
 </section>
 
-
 <footer class="site-footer">
   <div class="footer-content">
-    <!-- Left -->
     <div class="footer-left">
       <h3>The Lighthouse Ministers</h3>
       <p>Spreading the message of hope and faith through music and community service.</p>
       <p><strong>Location:</strong> Jetview SDA Church, Utawala, Nairobi, Kenya</p>
-      <p><strong>Whatsapp Contact:</strong> <a href="https://wa.me/254724436295" target="_blank" rel="noopener">+254 724 436 295</a></p>
+      <p><strong>Whatsapp Contact:</strong> <a href="https://wa.me/254724436295" target="_blank">+254 724 436 295</a></p>
     </div>
-
-    <!-- Right -->
     <div class="footer-right">
       <h4>Quick Links</h4>
       <ul class="footer-links">
@@ -133,45 +161,51 @@
         <li><a href="members.html">Members</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-<!-- Floating Social Icons with Tooltips -->
-<div class="floating-socials-bottom">
-  <a href="https://www.youtube.com/@thelighthouseministersnairobi/videos" target="_blank" class="social youtube" aria-label="YouTube">
-    <i class="fa fa-youtube-play"></i>
-    <span class="tooltip">YouTube</span>
-  </a>
-  <a href="https://instagram.com/yourpage" target="_blank" class="social instagram" aria-label="Instagram">
-    <i class="fa fa-instagram"></i>
-    <span class="tooltip">Instagram</span>
-  </a>
-  <a href="https://wa.me/254724436295" target="_blank" class="social whatsapp" aria-label="WhatsApp">
-    <i class="fa fa-whatsapp"></i>
-    <span class="tooltip">WhatsApp</span>
-  </a>
-</div>
- </div>
+    </div>
   </div>
-
   <div class="footer-bottom">
     <p>&copy; 2025 The Lighthouse Ministers - NRB. All rights reserved.</p>
     <a href="#" class="back-to-top">Back to Top ↑</a>
   </div>
 </footer>
+
 <script>
-    function toggleMenu() {
-    const nav = document.getElementById('navLinks');
-    nav.classList.toggle('active');
-  }
-     function sendToWhatsApp() {
-    const name = document.getElementById('name').value.trim();
-    const code = document.getElementById('code').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
 
-    const text = `Hello, I have just supported the ministry via M-PESA.\n\nName: ${name}\nTransaction Code: ${code}\nEmail: ${email}\nMessage: ${message}`;
-    const encodedText = encodeURIComponent(text);
+function sendToWhatsApp() {
+  const name = document.getElementById('name').value.trim();
+  const code = document.getElementById('code').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
 
-    window.open(`https://wa.me/254700588392?text=${encodedText}`, '_blank');
-  }
+  const text = `Hello, I have just supported the ministry via M-PESA.\n\nName: ${name}\nTransaction Code: ${code}\nEmail: ${email}\nMessage: ${message}`;
+  const encodedText = encodeURIComponent(text);
+  window.open(`https://wa.me/254700588392?text=${encodedText}`, '_blank');
+}
+
+// Fetch events dynamically
+fetch("get_ministries.php")
+  .then(res => res.json())
+  .then(events => {
+    const container = document.getElementById("events-container");
+    container.innerHTML = "";
+    if (events.length > 0) {
+      events.forEach(event => {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        card.innerHTML = `
+          <img src="${event.image}" alt="${event.title}">
+          <p class="event-name">${event.title}</p>
+        `;
+        container.appendChild(card);
+      });
+    } else {
+      container.innerHTML = "<p>No events available at the moment.</p>";
+    }
+  })
+  .catch(err => console.error("Error loading events:", err));
 </script>
 </body>
 </html>
