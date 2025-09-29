@@ -15,12 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-
-        // ✅ save both id and username for consistency
-        $_SESSION["admin_id"] = $row["id"];
-        $_SESSION["admin_username"] = $row["username"];
-
+        $_SESSION["admin"] = $username;
         header("Location: dashboard.php");
         exit;
     } else {
@@ -28,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Admin Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ responsive -->
   <style>
     body { 
       font-family: Arial, sans-serif; 
@@ -42,17 +37,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       align-items: center; 
       height: 100vh; 
       margin: 0;
-      background: #f4f4f4;
-      padding: 15px; /* ✅ prevent overflow on small screens */
+      background: #0e013dff; /* plain background */
     }
     .login-box { 
-      width: 100%;
-      max-width: 380px; /* ✅ adapts for mobile */
+      width: 320px; 
       padding: 25px; 
       border: 1px solid #ddd; 
       border-radius: 10px; 
       background: #fff; 
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
     }
     h2 { 
       text-align: center; 
@@ -60,39 +53,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       color: #333;
     }
     input { 
-      width: 100%; /* ✅ full width for responsiveness */
-      padding: 12px; 
+      width: 93%; 
+      padding: 10px; 
       margin: 8px 0; 
       border-radius: 5px; 
       border: 1px solid #aaa; 
-      font-size: 16px;
-      box-sizing: border-box;
+      font-size: 14px;
     }
     button { 
       width: 100%; 
-      padding: 12px; 
-      background: #222;  /* theme color for button */
+      padding: 10px; 
+      background: #060150ff;  /* theme color for button */
       color: #fff; 
       border: none; 
       border-radius: 5px; 
       cursor: pointer; 
       font-size: 16px;
-      margin-top: 10px;
     }
     button:hover { 
-      background: #444; 
+      background: #d10000ff; 
     }
     .error { 
       color: red; 
       margin-top: 10px; 
       text-align: center;
-      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <div class="login-box">
-    <h2>Lighthouse Admin Login</h2>
+    <h2>Admin Login</h2>
     <form method="POST" action="">
       <input type="text" name="username" placeholder="Username" required>
       <input type="password" name="password" placeholder="Password" required>
