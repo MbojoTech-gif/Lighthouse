@@ -257,7 +257,7 @@ fetch("get_ministries.php")
         container.appendChild(card);
       });
     } else {
-      container.innerHTML = "<p>No events available at the moment.</p>";
+      container.innerHTML = "<p><b><font color = red>No events available at the moment.</font></b></p>";
     }
   })
   .catch(err => console.error("Error loading events:", err));

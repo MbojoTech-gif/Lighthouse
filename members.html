@@ -522,20 +522,24 @@
                     const container = document.getElementById("membersGrid");
                     container.innerHTML = "";
 
-                    data.forEach(member => {
-                        const card = document.createElement("div");
-                        card.classList.add("member-card");
-                        card.innerHTML = `
-                            <div class="member-image">
-                                <img src="${member.image}" alt="${member.name}">
-                            </div>
-                            <div class="member-info">
-                                <h3>${member.name}</h3>
-                                <p class="member-role">${member.role}</p>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    });
+    if (data.length === 0) {
+        container.innerHTML = "<p><b><font color='red'>No members available at the moment.</font></b></p>";
+    } else {
+        data.forEach(member => {
+            const card = document.createElement("div");
+            card.classList.add("member-card");
+            card.innerHTML = `
+                <div class="member-image">
+                    <img src="${member.image}" alt="${member.name}">
+                </div>
+                <div class="member-info">
+                    <h3>${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
                 })
                 .catch(err => {
                     console.error("Error loading members:", err);
