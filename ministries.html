@@ -12,7 +12,7 @@
   /* Card Grid */
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
     margin-top: 20px;
   }
@@ -35,52 +35,101 @@
 
   .event-card img {
     width: 100%;
-    height: 120px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: cover; /* fill fully */
+    display: block;
   }
 
   .event-name {
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .btn-view {
+    background: #01175d;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin: 10px auto 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-view:hover {
+    background: #022285;
+  }
+
+  /* Popup Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    position: relative;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: popIn 0.3s forwards;
+  }
+
+  .modal-content img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .modal-content h3 {
+    margin: 0 0 10px;
+    color: #01175d;
+  }
+
+  .modal-content p {
+    margin: 6px 0;
     font-size: 0.95rem;
-    padding: 8px;
+    color: black;
   }
 
-  /* Responsive columns */
-  @media (min-width: 1024px) {
-    .card-grid {
-      grid-template-columns: repeat(4, 1fr); /* 4 cards on large screens */
-    }
+  /* Dark red for type & date */
+  #modalType, #modalDate {
+    color: darkred;
+    font-weight: 600;
   }
 
-  @media (max-width: 1023px) and (min-width: 768px) {
-    .card-grid {
-      grid-template-columns: repeat(3, 1fr); /* 3 cards on medium screens */
-    }
+  .close-btn {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
   }
 
-  @media (max-width: 767px) {
-    .card-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 cards on mobile */
-    }
-    .event-card img {
-      height: 100px;
-    }
-    .event-name {
-      font-size: 0.9rem;
-      padding: 6px;
-    }
+  @keyframes fadeIn {
+    from {background: rgba(0,0,0,0);}
+    to {background: rgba(0,0,0,0.6);}
   }
 
-  @media (max-width: 480px) {
-    .card-grid {
-      gap: 12px;
-    }
-    .event-card img {
-      height: 90px;
-    }
-    .event-name {
-      font-size: 0.85rem;
-      padding: 5px;
+  @keyframes popIn {
+    to {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 </style>
@@ -99,7 +148,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="ministries.html">Ministries & Projects</a></li>
+      <li><a href="ministries.html" class="active">Ministries & Projects</a></li>
       <li><a href="members.html">Members</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -108,64 +157,28 @@
 
 <section class="events-projects-section">
   <div class="container">
-    <h2>Our Events</h2>
-    <p class="section-intro">Stay up to date with our upcoming ministry events.</p>
+    <h2>Our Events & Projects</h2>
+    <p class="section-intro">Explore the ministries, projects, and events we are working on.</p>
     <div class="card-grid" id="events-container">
-      <!-- Dynamic cards will load here -->
+      <!-- Cards load here -->
     </div>
   </div>
 </section>
 
-<section class="mpesa-support-section">
-  <div class="mpesa-support-container">
-    <h2><i class="fa fa-money"></i> Support Our Projects via M-PESA</h2>
-    <p>Your contribution empowers our ministry to do more. Follow the steps below to support us.</p>
-    <div class="mpesa-steps-box">
-      <h4>Steps to Send Support:</h4>
-      <ol>
-        <li>Go to M-PESA menu on your phone</li>
-        <li>Select <strong>M-PESA</strong></li>
-        <li>Select <strong>Send Money</strong></li>
-        <li>Enter Phone Number: <strong>0707154160</strong></li>
-        <li>Enter Amount</li>
-        <li>Enter your M-PESA PIN and send</li>
-      </ol>
-    </div>
-    <div class="confirmation-form">
-      <h3><i class="fa fa-check-circle"></i> Send Confirmation</h3>
-      <form id="whatsappForm" onsubmit="sendToWhatsApp(); return false;">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="text" id="code" placeholder="Transaction Code" required>
-        <input type="email" id="email" placeholder="Email (optional)">
-        <textarea id="message" placeholder="Message (optional)"></textarea>
-        <button type="submit"><i class="fa fa-whatsapp"></i> Send via WhatsApp</button>
-      </form>
-    </div>
+<!-- Modal -->
+<div id="eventModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Event Image">
+    <h3 id="modalTitle"></h3>
+    <p><strong>Type:</strong> <span id="modalType"></span></p>
+    <p><strong>Date:</strong> <span id="modalDate"></span></p>
   </div>
-</section>
+</div>
 
 <footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <h3>The Lighthouse Ministers</h3>
-      <p>Spreading the message of hope and faith through music and community service.</p>
-      <p><strong>Location:</strong> Jetview SDA Church, Utawala, Nairobi, Kenya</p>
-      <p><strong>Whatsapp Contact:</strong> <a href="https://wa.me/254724436295" target="_blank">+254 724 436 295</a></p>
-    </div>
-    <div class="footer-right">
-      <h4>Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="ministries.html">Ministries</a></li>
-        <li><a href="members.html">Members</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </div>
   <div class="footer-bottom">
     <p>&copy; 2025 The Lighthouse Ministers - NRB. All rights reserved.</p>
-    <a href="#" class="back-to-top">Back to Top ↑</a>
   </div>
 </footer>
 
@@ -174,15 +187,17 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('active');
 }
 
-function sendToWhatsApp() {
-  const name = document.getElementById('name').value.trim();
-  const code = document.getElementById('code').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
+// Modal functions
+function openModal(event) {
+  document.getElementById("modalImage").src = event.image;
+  document.getElementById("modalTitle").innerText = event.title;
+  document.getElementById("modalType").innerText = event.type ?? "Not set";
+  document.getElementById("modalDate").innerText = event.event_date ?? "Not set";
+  document.getElementById("eventModal").style.display = "flex";
+}
 
-  const text = `Hello, I have just supported the ministry via M-PESA.\n\nName: ${name}\nTransaction Code: ${code}\nEmail: ${email}\nMessage: ${message}`;
-  const encodedText = encodeURIComponent(text);
-  window.open(`https://wa.me/254700588392?text=${encodedText}`, '_blank');
+function closeModal() {
+  document.getElementById("eventModal").style.display = "none";
 }
 
 // Fetch events dynamically
@@ -198,7 +213,9 @@ fetch("get_ministries.php")
         card.innerHTML = `
           <img src="${event.image}" alt="${event.title}">
           <p class="event-name">${event.title}</p>
+          <button class="btn-view">View More</button>
         `;
+        card.querySelector(".btn-view").addEventListener("click", () => openModal(event));
         container.appendChild(card);
       });
     } else {
@@ -206,6 +223,14 @@ fetch("get_ministries.php")
     }
   })
   .catch(err => console.error("Error loading events:", err));
+
+// Close modal on background click
+window.onclick = function(e) {
+  const modal = document.getElementById("eventModal");
+  if (e.target === modal) {
+    closeModal();
+  }
+}
 </script>
 </body>
 </html>
