@@ -37,14 +37,14 @@
             --medium-gray: #666666;
         }
         
-        /* Header & Navigation */
+        /* Header & Navigation - STAYS WHITE */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 10px 20px;
             background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -84,7 +84,7 @@
         }
         
         .nav-links a:hover {
-            background-color: var(--white);
+            background-color: var(--light-blue);
         }
         
         .hamburger {
@@ -122,7 +122,7 @@
             bottom: 0;
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.64), rgba(2, 3, 84, 0.9)),
-                url('assets/src/w.jpg') center/cover no-repeat;
+                url('assets/src/gr.jpeg') center/cover no-repeat;
             z-index: -1;
         }
         
@@ -278,7 +278,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        /* Streaming Platforms Section - IMPROVED DESIGN */
+        /* Streaming Platforms Section */
         .streaming-section {
             padding: 50px 10px;
             background-color: var(--white);
@@ -490,7 +490,7 @@
             line-height: 1.5;
         }
         
-        /* Join Us Section - SMALLER & COMPACT */
+        /* Join Us Section */
         .join-us-section {
             padding: 40px 20px;
             background-color: var(--white);
@@ -594,11 +594,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        /* Professional Footer with Gradient */
+        /* footer section*/
         .site-footer {
             background: linear-gradient(135deg, var(--dark-gray) 40%, var(--secondary-blue) 100%);
             color: var(--white);
-            padding: 40px 5px 10px;
+            padding: 40px 20px 20px;
             position: relative;
         }
         
@@ -609,7 +609,6 @@
             width: 100%;
             overflow: hidden;
             line-height: 0;
-            color: linear-gradient(135deg, var(--primary-blue) 40%, var(--dark-gray) 100%);
         }
         
         .footer-wave svg {
@@ -620,7 +619,7 @@
         }
         
         .footer-wave .shape-fill {
-            fill: var(--white);
+            fill: url(#footer-gradient);
         }
         
         .footer-content {
@@ -747,9 +746,9 @@
         
         .footer-bottom {
             max-width: 1200px;
-            margin: 60px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -758,14 +757,14 @@
         
         .footer-bottom p {
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.9;
         }
         
         .back-to-top {
             color: var(--white);
             text-decoration: none;
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: opacity 0.3s;
             display: flex;
             align-items: center;
@@ -807,7 +806,7 @@
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
             
             .nav-links.active {
@@ -922,9 +921,10 @@
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php" class="active">Home</a></li>
             <li><a href="about.php">About Us</a></li>
-            <li><a href="ministries.php">Ministries & Projects</a></li>
+            <li><a href="events.php">Events & Projects</a></li>
+            <li><a href="songs.php">Songs</a></li>
             <li><a href="members.php">Members</a></li>
             <li><a href="contact.php">Contact</a></li>
         </ul>
@@ -943,7 +943,7 @@
 
         <!-- Action Buttons -->
         <div class="welcome-buttons">
-            <a href="ministries.php" class="btn-primary">View Upcoming Events</a>
+            <a href="events.php" class="btn-primary">View Upcoming Events</a>
             <a href="https://www.youtube.com/@thelighthouseministersnairobi/videos" class="btn-secondary">Explore Our Music</a>
         </div>
     </div>
@@ -1056,9 +1056,18 @@
     </div>
 </section>
 
+
+
 <footer class="site-footer">
     <div class="footer-wave">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="footer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#003366;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#004080;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
+                </linearGradient>
+            </defs>
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
         </svg>
     </div>
@@ -1153,18 +1162,6 @@
             top: 0,
             behavior: 'smooth'
         });
-    });
-
-    // Add scroll effect to navbar
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 100) {
-            navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            navbar.style.backgroundColor = 'rgba(0, 51, 102, 0.95)';
-        } else {
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            navbar.style.backgroundColor = 'var(--primary-blue)';
-        }
     });
 </script>
 </body>
