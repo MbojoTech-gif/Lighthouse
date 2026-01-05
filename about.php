@@ -4,9 +4,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php include 'favicon2.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - LIGHTHOUSE MINISTERS</title>
+    <title>About Us - Lighthouse Ministers</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -527,189 +528,8 @@
             object-fit: cover;
             display: block;
         }
-        
-        /* Footer - Same as index.php */
-        .site-footer {
-            background: linear-gradient(135deg, var(--dark-gray) 40%, var(--secondary-blue) 100%);
-            color: var(--white);
-            padding: 40px 20px 20px;
-            position: relative;
-        }
-        
-        .footer-wave {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-        
-        .footer-wave svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 50px;
-        }
-        
-        .footer-wave .shape-fill {
-            fill: url(#footer-gradient);
-        }
-        
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 30px;
-        }
-        
-        .footer-left h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--white);
-            font-weight: 700;
-        }
-        
-        .footer-left p {
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-        
-        .footer-left strong {
-            color: var(--white);
-            font-weight: 600;
-        }
-        
-        .footer-left a {
-            color: var(--light-blue);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-left a:hover {
-            color: var(--white);
-            text-decoration: underline;
-        }
-        
-        .footer-center {
-            text-align: center;
-        }
-        
-        .footer-center h4 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--white);
-            font-weight: 600;
-        }
-        
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .footer-links li {
-            margin: 0;
-        }
-        
-        .footer-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            transition: all 0.3s;
-            display: inline-block;
-            padding: 3px 0;
-        }
-        
-        .footer-links a:hover {
-            opacity: 1;
-            transform: translateX(3px);
-            color: var(--light-blue);
-        }
-        
-        .footer-right {
-            text-align: right;
-        }
-        
-        .footer-socials {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: flex-end;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            transition: all 0.3s;
-        }
-        
-        .social-link:hover {
-            opacity: 1;
-            transform: translateX(-3px);
-            color: var(--light-blue);
-        }
-        
-        .social-icon {
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-        
-        .social-link:hover .social-icon {
-            background: var(--white);
-            color: var(--primary-blue);
-        }
-        
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 35px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .footer-bottom p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-        
-        .back-to-top {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.85rem;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .back-to-top:hover {
-            opacity: 1;
-        }
-        
-        /* Responsive Design */
+
+        /* RESPONSIVE DESIGN - ABOUT PAGE SPECIFIC */
         @media (max-width: 992px) {
             .explore-wrapper,
             .testimony-wrapper {
@@ -818,30 +638,6 @@
                 max-width: 300px;
                 width: 100%;
             }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 35px;
-            }
-            
-            .footer-right {
-                text-align: center;
-            }
-            
-            .footer-socials {
-                align-items: center;
-            }
-            
-            .social-link {
-                justify-content: center;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
         }
         
         @media (max-width: 480px) {
@@ -887,6 +683,413 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* COMPLETELY REDESIGNED FOOTER SECTION - Matching index.php */
+        .site-footer {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 60px 20px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Remove the wave design */
+        .footer-wave {
+            display: none;
+        }
+        
+        /* Footer top accent */
+        .footer-top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--light-blue) 50%, var(--accent-blue) 100%);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        /* Footer Logo Section */
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-logo-container {
+            display: flex;
+            align-items: justify;
+            gap: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0;
+        }
+        
+        .footer-tagline {
+            font-size: 0.9rem;
+            color: var(--light-blue);
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .footer-about {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Info */
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-item i {
+            color: var(--light-blue);
+            font-size: 1.1rem;
+            margin-top: 2px;
+            min-width: 20px;
+        }
+        
+        .contact-item a {
+            color: var(--light-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        /* Quick Links Section */
+        .footer-links-section h4,
+        .footer-social-section h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links-section h4::after,
+        .footer-social-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--light-blue);
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-links li {
+            margin: 0;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--light-blue);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover::before {
+            transform: translateX(3px);
+        }
+        
+        /* Social Media Section */
+        .footer-social-section {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .social-icons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .social-icon-link:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon-link i {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .social-icon-link span {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Newsletter */
+        .footer-newsletter {
+            margin-top: 20px;
+        }
+        
+        .newsletter-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--light-blue);
+        }
+        
+        .newsletter-btn {
+            padding: 10px 20px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer Bottom */
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-credits {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .techmbojo {
+            color: var(--light-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .techmbojo:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+        
+        .back-to-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-to-top:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design for Footer */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 1;
+                text-align: center;
+            }
+            
+            .footer-logo-container {
+                justify-content: center;
+            }
+            
+            .footer-links-section h4,
+            .footer-social-section h4 {
+                text-align: center;
+            }
+            
+            .footer-links-section h4::after,
+            .footer-social-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-icons-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .footer-legal {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .social-icons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-legal {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -908,6 +1111,7 @@
             <li><a href="about.php" class="active">About Us</a></li>
             <li><a href="events.php">Events & Projects</a></li>
             <li><a href="songs.php">Songs</a></li>
+            <li><a href="gallery.php">Gallery</a></li>
             <li><a href="members.php">Members</a></li>
             <li><a href="contact.php">Contact</a></li>
         </ul>
@@ -1058,72 +1262,94 @@
     </div>
 </section>
 
+<!-- REDESIGNED PROFESSIONAL FOOTER - Matching index.php -->
 <footer class="site-footer">
-    <div class="footer-wave">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <defs>
-                <linearGradient id="footer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#003366;stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:#004080;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-        </svg>
-    </div>
+    <div class="footer-top-accent"></div>
     
     <div class="footer-content">
-        <div class="footer-left">
-            <h3>The Lighthouse Ministers</h3>
-            <p>Spreading the message of hope and faith through music and community service.</p>
-            <p><strong>Location:</strong> Jetview SDA Church, Utawala, Nairobi, Kenya</p>
-            <p><strong>WhatsApp Contact:</strong> <a href="https://wa.me/254724436295" target="_blank" rel="noopener">+254 724 436 295</a></p>
-            <p><strong>Email:</strong> <a href="mailto:lighthouseministers23@gmail.com">lighthouseministers23@gmail.com</a></p>
+        <!-- Logo and About Section -->
+        <div class="footer-logo-section">
+            <div class="footer-logo-container">
+                <img src="assets/src/ll.png" alt="Lighthouse Ministers Logo" class="footer-logo">
+                <div class="footer-brand">
+                    <h3>LIGHTHOUSE MINISTERS</h3>
+                    <p class="footer-tagline">Guiding Souls Through Music & Faith</p>
+                </div>
+            </div>
+            <p class="footer-about">
+                Spreading the message of hope and faith through music and community service. 
+                We are dedicated to uplifting souls through worship and evangelism as part of 
+                the Seventh-day Adventist Church community in Nairobi, Kenya.
+            </p>
+            <div class="footer-contact-info">
+                <div class="contact-item">
+                    <i class="fa fa-map-marker"></i>
+                    <span>Jetview SDA Church, Utawala, Nairobi, Kenya</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-phone"></i>
+                    <a href="https://wa.me/254724436295" target="_blank" rel="noopener">+254 724 436 295</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:lighthouseministers23@gmail.com">lighthouseministers23@gmail.com</a>
+                </div>
+            </div>
         </div>
 
-        <div class="footer-center">
+        <!-- Quick Links Section -->
+        <div class="footer-links-section">
             <h4>Quick Links</h4>
             <ul class="footer-links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About Us</a></li>
-                <li><a href="ministries.php">Ministries & Projects</a></li>
-                <li><a href="members.php">Members</a></li>
+                <li><a href="events.php">Events & Projects</a></li>
+                <li><a href="songs.php">Our Music</a></li>
+                <li><a href="members.php">Ministry Team</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
             </ul>
         </div>
 
-        <div class="footer-right">
-            <div class="footer-socials">
-                <a href="https://www.youtube.com/@thelighthouseministersnairobi/videos" target="_blank" class="social-link">
+        <!-- Social Media & Newsletter Section -->
+        <div class="footer-social-section">
+            <h4>Connect With Us</h4>
+            <div class="social-icons-grid">
+                <a href="https://www.youtube.com/@thelighthouseministersnairobi/videos" target="_blank" class="social-icon-link">
+                    <i class="fa fa-youtube-play"></i>
                     <span>YouTube</span>
-                    <div class="social-icon">
-                        <i class="fa fa-youtube-play"></i>
-                    </div>
                 </a>
-                <a href="https://instagram.com/yourpage" target="_blank" class="social-link">
+                <a href="https://www.instagram.com/lighthouseministers_official?igsh=MWp2Mnl2YWd2M3RuMw==" target="_blank" class="social-icon-link">
+                    <i class="fa fa-instagram"></i>
                     <span>Instagram</span>
-                    <div class="social-icon">
-                        <i class="fa fa-instagram"></i>
-                    </div>
                 </a>
-                <a href="https://wa.me/254724436295" target="_blank" class="social-link">
+                <a href="https://wa.me/254724436295" target="_blank" class="social-icon-link">
+                    <i class="fa fa-whatsapp"></i>
                     <span>WhatsApp</span>
-                    <div class="social-icon">
-                        <i class="fa fa-whatsapp"></i>
-                    </div>
                 </a>
-                <a href="https://facebook.com" target="_blank" class="social-link">
+                <a href="https://facebook.com" target="_blank" class="social-icon-link">
+                    <i class="fa fa-facebook"></i>
                     <span>Facebook</span>
-                    <div class="social-icon">
-                        <i class="fa fa-facebook"></i>
-                    </div>
                 </a>
+            </div>
+            
+            <div class="footer-newsletter">
+                <p class="newsletter-text">Subscribe to our newsletter for updates</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2025 The Lighthouse Ministers - NRB. All rights reserved.</p>
+        <p>&copy; 2025 The Lighthouse Ministers - Nairobi. All rights reserved.</p>
+        <div class="footer-credits">
+            <span>Powered by</span>
+            <a href="https://mbojodev.vercel.app" target="_blank" class="techmbojo">TechMbojo</a>
+        </div>
+        
         <a href="#" class="back-to-top">
             <i class="fa fa-arrow-up"></i>
             Back to Top
@@ -1144,6 +1370,16 @@
             top: 0,
             behavior: 'smooth'
         });
+    });
+
+    // Newsletter form submission
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('.newsletter-input').value;
+        if (email) {
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        }
     });
 </script>
 </body>

@@ -1,5 +1,5 @@
 <?php
-// This is members.php - Members page
+// This is gallery.php - Gallery page
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <?php include 'favicon2.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members - Lighthouse Ministers</title>
+    <title>Gallery - Lighthouse Ministers</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -86,6 +86,11 @@
             background-color: var(--light-blue);
         }
         
+        .nav-links a.active {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+        
         .hamburger {
             display: none;
             flex-direction: column;
@@ -145,13 +150,13 @@
             font-weight: 300;
         }
         
-        .members-section {
+        .gallery-section {
             padding: 40px 20px;
             background-color: var(--white);
         }
         
-        .members-container {
-            max-width: 1200px;
+        .gallery-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -178,95 +183,56 @@
             background-color: var(--primary-blue);
         }
         
-        /* UPDATED MEMBERS GRID - Smaller Cards */
-        .members-grid {
+        /* MASONRY STYLE GALLERY - Natural Heights */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 25px;
-            justify-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 10px; /* Controls row height */
+            grid-gap: 20px;
         }
         
-        /* UPDATED MEMBER CARD - Smaller with Circular Photo */
-        .member-card {
-            background: var(--white);
+        .gallery-item {
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 180px;
-            padding: 20px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #f0f0f0;
-        }
-        
-        .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Circular Photo Container */
-        .member-photo-container {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 15px;
-            border: 4px solid var(--light-blue);
-            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background: var(--light-gray);
+            position: relative;
         }
         
-        .member-photo {
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Photo Container - Natural Height */
+        .photo-container {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            transition: transform 0.3s ease;
+            position: relative;
         }
         
-        .member-card:hover .member-photo {
-            transform: scale(1.05);
-        }
-        
-        /* Details Section */
-        .member-details {
-            text-align: center;
+        .photo-img {
             width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
         }
         
-        .member-name {
-            font-size: 1rem;
-            color: var(--dark-gray);
-            font-weight: 600;
-            margin-bottom: 5px;
-            line-height: 1.3;
-            word-wrap: break-word;
+        .gallery-item:hover .photo-img {
+            transform: scale(1.03);
         }
         
-        .member-role {
-            font-size: 0.85rem;
-            color: var(--accent-blue);
-            font-weight: 500;
-            padding: 4px 10px;
-            background: var(--light-blue);
-            border-radius: 20px;
-            display: inline-block;
-        }
-        
+        /* Loading State */
         .loading {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             grid-column: 1/-1;
         }
         
         .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--light-blue);
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-blue);
             border-top-color: var(--primary-blue);
             border-radius: 50%;
             animation: spin 1s linear infinite;
@@ -278,6 +244,12 @@
             100% { transform: rotate(360deg); }
         }
         
+        .loading p {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+        
+        /* Empty State */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -286,57 +258,33 @@
         }
         
         .empty-state i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 15px;
             opacity: 0.3;
         }
         
         .empty-state h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--dark-gray);
         }
         
+        .empty-state p {
+            font-size: 1rem;
+        }
+        
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-                gap: 20px;
-            }
-            
-            .member-card {
-                max-width: 170px;
-                padding: 15px;
-            }
-            
-            .member-photo-container {
-                width: 110px;
-                height: 110px;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                grid-gap: 15px;
             }
         }
         
         @media (max-width: 992px) {
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 18px;
-            }
-            
-            .member-card {
-                max-width: 160px;
-                padding: 15px 12px;
-            }
-            
-            .member-photo-container {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .member-name {
-                font-size: 0.95rem;
-            }
-            
-            .member-role {
-                font-size: 0.8rem;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-gap: 15px;
             }
             
             .section-title h2 {
@@ -378,29 +326,9 @@
                 font-size: 1rem;
             }
             
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 15px;
-            }
-            
-            .member-card {
-                max-width: 150px;
-                padding: 12px;
-            }
-            
-            .member-photo-container {
-                width: 90px;
-                height: 90px;
-                border-width: 3px;
-            }
-            
-            .member-name {
-                font-size: 0.9rem;
-            }
-            
-            .member-role {
-                font-size: 0.75rem;
-                padding: 3px 8px;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                grid-gap: 12px;
             }
         }
         
@@ -413,55 +341,27 @@
                 font-size: 1.8rem;
             }
             
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 12px;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                grid-gap: 10px;
             }
             
-            .member-card {
-                max-width: 140px;
-                padding: 10px;
-            }
-            
-            .member-photo-container {
-                width: 85px;
-                height: 85px;
-            }
-            
-            .member-name {
-                font-size: 0.85rem;
-            }
-            
-            .member-role {
-                font-size: 0.7rem;
+            .gallery-item {
+                border-radius: 8px;
             }
         }
         
         @media (max-width: 480px) {
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 10px;
-            }
-            
-            .member-card {
-                max-width: 130px;
-            }
-            
-            .member-photo-container {
-                width: 80px;
-                height: 80px;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                grid-gap: 8px;
             }
         }
         
         @media (max-width: 400px) {
-            .members-grid {
+            .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
-                max-width: 280px;
-                margin: 0 auto;
-            }
-            
-            .member-card {
-                max-width: 140px;
+                grid-gap: 8px;
             }
         }
 
@@ -893,8 +793,8 @@
             <li><a href="about.php">About Us</a></li>
             <li><a href="events.php">Events & Projects</a></li>
             <li><a href="songs.php">Songs</a></li>
-            <li><a href="members.php" class="active">Members</a></li>
-            <li><a href="gallery.php">Gallery</a></li>
+            <li><a href="members.php">Members</a></li>
+            <li><a href="gallery.php" class="active">Gallery</a></li>
             <li><a href="contact.php">Contact</a></li>
         </ul>
     </nav>
@@ -902,24 +802,24 @@
 
 <section class="hero-section">
     <div class="hero-content">
-        <h1>Meet Our Family</h1>
+        <h1>Photo Gallery</h1>
         <p>
-            The Lighthouse Ministers is made up of dedicated individuals who share a common passion for worship,
-            music, and service. Each member brings unique gifts and talents to create a harmonious ministry.
+            Browse through our collection of memorable moments, worship sessions, and community events.
+            Each photo tells a story of faith, fellowship, and ministry.
         </p>
     </div>
 </section>
 
-<section class="members-section">
-    <div class="members-container">
+<section class="gallery-section">
+    <div class="gallery-container">
         <div class="section-title">
-            <h2>Our Members</h2>
+            <h2>Our Moments</h2>
         </div>
         
-        <div class="members-grid" id="membersGrid">
+        <div class="gallery-grid" id="galleryGrid">
             <div class="loading">
                 <div class="loading-spinner"></div>
-                <p>Loading members...</p>
+                <p>Loading gallery...</p>
             </div>
         </div>
     </div>
@@ -1027,16 +927,16 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        const membersGrid = document.getElementById("membersGrid");
+        const galleryGrid = document.getElementById("galleryGrid");
         
-        membersGrid.innerHTML = `
+        galleryGrid.innerHTML = `
             <div class="loading">
                 <div class="loading-spinner"></div>
-                <p>Loading members...</p>
+                <p>Loading gallery photos...</p>
             </div>
         `;
         
-        fetch("api/get-members.php")
+        fetch("api/get-gallery.php")
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -1044,13 +944,13 @@
                 return response.json();
             })
             .then(data => {
-                membersGrid.innerHTML = "";
+                galleryGrid.innerHTML = "";
                 
                 if (data.error) {
-                    membersGrid.innerHTML = `
-                        <div class="empty-state" style="grid-column: 1/-1;">
+                    galleryGrid.innerHTML = `
+                        <div class="empty-state">
                             <i class="fa fa-exclamation-circle"></i>
-                            <h3>Error Loading Members</h3>
+                            <h3>Error Loading Gallery</h3>
                             <p>${data.error}</p>
                         </div>
                     `;
@@ -1058,49 +958,56 @@
                 }
                 
                 if (data.length === 0) {
-                    membersGrid.innerHTML = `
-                        <div class="empty-state" style="grid-column: 1/-1;">
-                            <i class="fa fa-users"></i>
-                            <h3>No Members Available</h3>
-                            <p>Check back soon for updates!</p>
+                    galleryGrid.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fa fa-images"></i>
+                            <h3>No Photos Yet</h3>
+                            <p>Check back soon for gallery updates!</p>
                         </div>
                     `;
                     return;
                 }
                 
-                data.forEach(member => {
-                    const card = document.createElement("div");
-                    card.className = "member-card";
+                // Create photo grid items
+                data.forEach((photo, index) => {
+                    const item = document.createElement("div");
+                    item.className = "gallery-item";
                     
-                    const imageUrl = member.image || 'Lhm-Family/assets/uploads/members/';
-                    const memberName = member.name || 'Member';
-                    const memberRole = member.role || 'Member';
+                    const imageUrl = photo.image || 'assets/uploads/gallery/';
                     
-                    card.innerHTML = `
-                        <div class="member-photo-container">
+                    item.innerHTML = `
+                        <div class="photo-container">
                             <img src="${imageUrl}" 
-                                 alt="${memberName}"
-                                 class="member-photo"
+                                 alt="Gallery Photo"
+                                 class="photo-img"
                                  loading="lazy"
-                                 onerror="this.src='Lhm-Family/assets/uploads/members/'">
-                        </div>
-                        <div class="member-details">
-                            <h3 class="member-name">${memberName}</h3>
-                            <div class="member-role">${memberRole}</div>
+                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5HYWxsZXJ5IFBob3RvPC90ZXh0Pjwvc3ZnPic">
                         </div>
                     `;
-                    membersGrid.appendChild(card);
+                    galleryGrid.appendChild(item);
+                    
+                    // Set grid row span based on image aspect ratio
+                    const img = item.querySelector('img');
+                    img.onload = function() {
+                        // Calculate aspect ratio and set appropriate grid row span
+                        const aspectRatio = img.naturalHeight / img.naturalWidth;
+                        let rowSpan = Math.ceil(aspectRatio * 10); // Adjust this multiplier as needed
+                        
+                        // Ensure minimum and maximum row spans
+                        rowSpan = Math.max(8, Math.min(rowSpan, 30));
+                        item.style.gridRowEnd = `span ${rowSpan}`;
+                    };
                 });
                 
-                console.log(`Successfully loaded ${data.length} members`);
+                console.log(`Successfully loaded ${data.length} photos`);
             })
             .catch(err => {
-                console.error("Error loading members:", err);
-                membersGrid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1/-1;">
+                console.error("Error loading gallery:", err);
+                galleryGrid.innerHTML = `
+                    <div class="empty-state">
                         <i class="fa fa-exclamation-triangle"></i>
                         <h3>Connection Error</h3>
-                        <p>Unable to load members. Please check your connection and try again.</p>
+                        <p>Unable to load gallery. Please check your connection and try again.</p>
                     </div>
                 `;
             });
